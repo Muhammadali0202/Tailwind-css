@@ -1,6 +1,25 @@
 import React from 'react'
+import FoodCard from '../components/FoodCard'
 
 function Home() {
+    const foodCard = [
+        {
+            imgId: 1,
+            imgUrl: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=600',
+            name: "Pizza"
+        },
+
+        {
+            imgId: 2,
+            imgUrl: 'https://images.pexels.com/photos/327158/pexels-photo-327158.jpeg?auto=compress&cs=tinysrgb&w=600',
+            name: "Burger"
+        },
+        {
+            imgId: 1,
+            imgUrl: 'https://images.pexels.com/photos/4202390/pexels-photo-4202390.jpeg?auto=compress&cs=tinysrgb&w=600',
+            name: "Momos"
+        }
+    ]
   return (
     <div>
         {/* Hero Section */}
@@ -14,6 +33,17 @@ function Home() {
             </div>
         </div>
       </section>
+
+       <section className='w-[100vw] flex flex-col justify-center items-center p-5'>
+        <h2 className='text-3xl font-bold text-gray-700 mb-6'>Explore Food</h2>
+        <div className='w-full flex items-center justify-center gap-16'>
+             {
+                foodCard.map((items) => (
+                    <FoodCard key={items.imgId} name={items.name} img={items.imgUrl}/>
+                ))
+             }
+        </div>
+       </section>
     </div>
   )
 }
